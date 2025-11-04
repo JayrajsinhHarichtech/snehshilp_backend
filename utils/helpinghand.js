@@ -1,0 +1,50 @@
+exports.adminTemplate = ({ name, email, mobile, Project }) => `
+  <div style="font-family:'Segoe UI',Arial,sans-serif;background:#f5f7fa;padding:30px;">
+    <div style="max-width:650px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;box-shadow:0 4px 25px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(90deg,#4CAF50,#73BE5F);padding:25px;text-align:center;">
+        <h2 style="color:#fff;margin:0;font-size:22px;">New Inquiry Received</h2>
+      </div>
+      <div style="padding:30px;">
+        <p style="font-size:16px;color:#333;margin-bottom:20px;">You’ve received a new form submission:</p>
+        <table style="width:100%;border-collapse:collapse;font-size:15px;">
+          ${[
+            ["Full Name", name],
+            ["Email", email],
+            ["Mobile", mobile],
+            ["Project", Project],
+          ]
+            .map(
+              ([label, value]) => `
+                <tr>
+                  <td style="padding:12px;border:1px solid #e1e1e1;background:#f9fafc;font-weight:600;color:#4CAF50;width:35%;">${label}</td>
+                  <td style="padding:12px;border:1px solid #e1e1e1;color:#333;">${value}</td>
+                </tr>`
+            )
+            .join("")}
+        </table>
+      </div>
+      <div style="border-top:1px solid #e1e4ec;margin:0 30px;"></div>
+      <div style="background:#f5f7fb;text-align:center;padding:15px;">
+        <p style="margin:0;font-size:14px;color:#666;">© ${new Date().getFullYear()} Snehshilp | All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+`;
+
+exports.userTemplate = ({ name }) => `
+  <div style="font-family:'Segoe UI',Arial,sans-serif;background:#f5f7fa;padding:30px;">
+    <div style="max-width:650px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;box-shadow:0 4px 25px rgba(0,0,0,0.1);">
+      <div style="background:linear-gradient(90deg,#4CAF50,#73BE5F);padding:25px;text-align:center;">
+        <h2 style="color:#fff;margin:0;font-size:22px;">Thank You, ${name}!</h2>
+      </div>
+      <div style="padding:30px;color:#333;text-align:center;">
+        <p style="font-size:17px;margin-bottom:10px;">We’ve received your inquiry successfully.</p>
+        <p style="font-size:15px;margin-bottom:20px;">Our team will get back to you soon.</p>
+      </div>
+      <div style="border-top:1px solid #e1e4ec;margin:0 30px;"></div>
+      <div style="background:#f5f7fb;text-align:center;padding:15px;">
+        <p style="margin:0;font-size:14px;color:#666;">© ${new Date().getFullYear()} Snehshilp | Powered by Snehshilp Technologies</p>
+      </div>
+    </div>
+  </div>
+`;
