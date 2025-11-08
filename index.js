@@ -9,17 +9,17 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ Middleware
+// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// ✅ Serve uploaded files
+// Serve uploaded files
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// ✅ Import Routers
+// Import Routers
 const Internrouter = require("./router/Internrouter");
 const helpinghandrouter = require("./router/helpinghandrouter");
 const participaterouter = require("./router/participaterouter");
@@ -36,7 +36,7 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", message: "Server is running properly" });
 });
 
-// ✅ Start Server
+// Start Server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

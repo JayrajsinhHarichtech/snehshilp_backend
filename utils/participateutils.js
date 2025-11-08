@@ -1,10 +1,12 @@
+const logoBase64 = `https://snehshilp.org/wp-content/uploads/2024/02/email-logo.png`;
+
 exports.adminTemplate = ({ name, email, mobile, Pincode, Address }) => `
   <div style="font-family: 'Segoe UI', Arial, sans-serif; background:#f5f7fa; padding:30px;">
     <div style="max-width:650px; margin:0 auto; background:#ffffff; border-radius:14px; overflow:hidden; box-shadow:0 4px 25px rgba(0,0,0,0.1);">
       
       <!-- Header -->
       <div style="background:linear-gradient(90deg, #4CAF50, #73BE5F); padding:25px; text-align:center;">
-        <img src="https://snehshilp.in/logo.png" alt="Snehshilp" style="width:130px; margin-bottom:10px;" />
+        <img src="${logoBase64}" alt="Snehshilp Logo" style="width:130px; margin-bottom:10px;" />
         <h2 style="color:#fff; margin:0; font-size:22px;">New Inquiry Received</h2>
       </div>
       
@@ -34,8 +36,10 @@ exports.adminTemplate = ({ name, email, mobile, Pincode, Address }) => `
         </table>
       </div>
 
+      <!-- Divider -->
       <div style="border-top:1px solid #e1e4ec; margin:0 30px;"></div>
 
+      <!-- Footer -->
       <div style="background:#f5f7fb; text-align:center; padding:15px;">
         <p style="margin:0; font-size:14px; color:#666;">
           © ${new Date().getFullYear()} <b>Snehshilp</b> | All Rights Reserved
@@ -49,11 +53,13 @@ exports.userTemplate = ({ name }) => `
   <div style="font-family:'Segoe UI', Arial, sans-serif; background:#f5f7fa; padding:30px;">
     <div style="max-width:650px; margin:0 auto; background:#ffffff; border-radius:14px; overflow:hidden; box-shadow:0 4px 25px rgba(0,0,0,0.1);">
       
+      <!-- Header -->
       <div style="background:linear-gradient(90deg, #4CAF50, #73BE5F); padding:25px; text-align:center;">
-        <img src="https://snehshilp.in/logo.png" alt="Snehshilp" style="width:130px; margin-bottom:10px;" />
+        <img src="${logoBase64}" alt="Snehshilp Logo" style="width:130px; margin-bottom:10px;" />
         <h2 style="color:#fff; margin:0; font-size:22px;">Thank You, ${name}!</h2>
       </div>
       
+      <!-- Body -->
       <div style="padding:30px; color:#333; text-align:center;">
         <p style="font-size:17px; margin-bottom:10px;">We’ve received your inquiry successfully.</p>
         <p style="font-size:15px; margin-bottom:20px;">Our team will review your request and get back to you soon.</p>
@@ -69,8 +75,10 @@ exports.userTemplate = ({ name }) => `
         </p>
       </div>
 
+      <!-- Divider -->
       <div style="border-top:1px solid #e1e4ec; margin:0 30px;"></div>
 
+      <!-- Footer -->
       <div style="background:#f5f7fb; text-align:center; padding:15px;">
         <p style="margin:0; font-size:14px; color:#666;">
           © ${new Date().getFullYear()} <b>Snehshilp</b> | Powered by Snehshilp Technologies

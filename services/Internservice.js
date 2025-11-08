@@ -40,7 +40,7 @@ exports.sendApplicationEnquiry = async ({
     await transporter.sendMail(adminMailOptions);
     await transporter.sendMail(userMailOptions);
 
-    console.log("✅ Emails sent successfully!");
+    console.log("Emails sent successfully!");
     return { success: true };
   } catch (error) {
     console.error("Email Sending Error:", error);

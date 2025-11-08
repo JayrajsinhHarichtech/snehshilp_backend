@@ -1,16 +1,18 @@
+const logoBase64 = `https://snehshilp.org/wp-content/uploads/2024/02/email-logo.png`;
+
 const PositionMap = {
   general: "Internship",
   event: "Volunteer",
   support: "Partnership",
 };
 
-exports.adminTemplate = ({ name, email, mobile, Position, Start,Resume  }) => `
+exports.adminTemplate = ({ name, email, mobile, Position, Start, Resume }) => `
   <div style="font-family: 'Segoe UI', Arial, sans-serif; background:#f5f7fa; padding:30px;">
     <div style="max-width:650px; margin:0 auto; background:#ffffff; border-radius:14px; overflow:hidden; box-shadow:0 4px 25px rgba(0,0,0,0.1);">
       
       <!-- Header -->
       <div style="background:linear-gradient(90deg, #4CAF50, #73BE5F); padding:25px; text-align:center;">
-        <img src="../public/snehalshilplogo.svg" alt="Snehshilp" style="width:130px; margin-bottom:10px;" />
+        <img src="${logoBase64}" alt="Snehshilp Logo" style="width:130px; margin-bottom:10px;" />
         <h2 style="color:#fff; margin:0; font-size:22px; letter-spacing:0.6px;">New Inquiry Received</h2>
       </div>
       
@@ -26,8 +28,8 @@ exports.adminTemplate = ({ name, email, mobile, Position, Start,Resume  }) => `
             ["Email", email],
             ["Mobile", mobile],
             ["Position", PositionMap[Position] || Position],
-            ["Start",Start],
-            ["Resume",Resume],
+            ["Start", Start],
+            ["Resume", Resume ? `<a href="${Resume}" target="_blank" style="color:#4CAF50;text-decoration:none;">View Resume</a>` : "—"],
           ]
             .map(
               ([label, value]) => `
@@ -53,13 +55,14 @@ exports.adminTemplate = ({ name, email, mobile, Position, Start,Resume  }) => `
     </div>
   </div>
 `;
+
 exports.userTemplate = ({ name }) => `
   <div style="font-family:'Segoe UI', Arial, sans-serif; background:#f5f7fa; padding:30px;">
     <div style="max-width:650px; margin:0 auto; background:#ffffff; border-radius:14px; overflow:hidden; box-shadow:0 4px 25px rgba(0,0,0,0.1);">
       
       <!-- Header -->
       <div style="background:linear-gradient(90deg, #4CAF50, #73BE5F); padding:25px; text-align:center;">
-        <img src="../public/snehalshilplogo.svg" alt="Snehshilp" style="width:130px; margin-bottom:10px;" />
+        <img src="${logoBase64}" alt="Snehshilp Logo" style="width:130px; margin-bottom:10px;" />
         <h2 style="color:#fff; margin:0; font-size:22px;">Thank You, ${name}!</h2>
       </div>
       

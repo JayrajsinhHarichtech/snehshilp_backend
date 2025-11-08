@@ -22,10 +22,10 @@ exports.submitApplication = async (req, res) => {
     });
 
     return res.status(200).json({
-      message: "Application submitted successfully ✅",
+      message: "Application submitted successfully",
     });
   } catch (error) {
-    console.error("❌ Submit Application Error:", error.message);
+    console.error("Submit Application Error:", error.message);
     return res
       .status(500)
       .json({ error: "Something went wrong, please try again later." });

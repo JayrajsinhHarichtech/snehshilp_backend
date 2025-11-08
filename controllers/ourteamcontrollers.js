@@ -30,9 +30,9 @@ exports.submitApplication = async (req, res) => {
       message: "Application submitted successfully",
     });
   } catch (error) {
-    console.error("❌ Submit Application Controller Error:", error);
+    console.error("Submit Application Controller Error:", error);
     return res
       .status(500)
-      .json({ error: "Something went wrong, please try again later." });
+      .json({ error:"Something went wrong, please try again later." });
   }
 };

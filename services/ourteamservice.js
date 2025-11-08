@@ -41,10 +41,10 @@ exports.sendApplicationenquiry = async ({ name, email, mobile, Position, Start, 
     await transporter.sendMail(adminMailOptions);
     await transporter.sendMail(userMailOptions);
 
-    console.log("✅ Emails sent successfully!");
+    console.log("Emails sent successfully!");
     return { success: true, message: "Emails sent successfully" };
   } catch (error) {
-    console.error("❌ Email Sending Error:", error);
+    console.error("Email Sending Error:", error);
     throw new Error("Failed to send enquiry email");
   }
 };

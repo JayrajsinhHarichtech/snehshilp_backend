@@ -20,7 +20,7 @@ const sendApplicationEnquiry = async ({ name, email, mobile, Project }) => {
     });
 
     await transporter.verify();
-    console.log("✅ SMTP Connection Successful!");
+    console.log("SMTP Connection Successful!");
 
     const adminMailOptions = {
       from: `"Snehshilp" <${process.env.SMTP_USER}>`,
@@ -39,10 +39,10 @@ const sendApplicationEnquiry = async ({ name, email, mobile, Project }) => {
     await transporter.sendMail(adminMailOptions);
     await transporter.sendMail(userMailOptions);
 
-    console.log("📧 Emails sent successfully!");
+    console.log("Emails sent successfully!");
     return { success: true, message: "Emails sent successfully" };
   } catch (error) {
-    console.error("❌ Email Sending Error:", error.message);
+    console.error("Email Sending Error:", error.message);
     throw new Error("Failed to send enquiry email. Check SMTP credentials.");
   }
 };

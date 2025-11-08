@@ -19,16 +19,16 @@ exports.sendApplicationEmail = async ({ name, mobile, email, Subject,message }) 
     await transporter.verify();
 
     const adminMailOptions = {
-      from: `"Insight" <${process.env.SMTP_USER}>`,
+      from: `"SnehShilp Foundation" <${process.env.SMTP_USER}>`,
       to: process.env.MAIL_TO,
       subject: "New Inquiry Received",
       html: adminTemplate({ name, mobile, email, Subject,message }),
     };
 
     const userMailOptions = {
-      from: `"Insight" <${process.env.SMTP_USER}>`,
+      from: `"SnehShilp Foundation" <${process.env.SMTP_USER}>`,
       to: email,
-      subject: "Thank You For Contacting Insight",
+      subject: "Thank You For Contacting SnehShilp",
       html: userTemplate({ name }),
     };
 

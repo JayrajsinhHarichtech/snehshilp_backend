@@ -4,7 +4,6 @@ exports.submitApplication = async (req, res) => {
   try {
     const { name, email, mobile, position, message } = req.body;
 
-    // ✅ Validation
     const errors = {};
     if (!name?.trim()) errors.name = "Name is required";
     if (!email?.trim()) errors.email = "Email is required";
@@ -16,7 +15,6 @@ exports.submitApplication = async (req, res) => {
       return res.status(400).json({ errors });
     }
 
-    // ✅ Send Email
     await InternService.sendApplicationEnquiry({
       name,
       email,

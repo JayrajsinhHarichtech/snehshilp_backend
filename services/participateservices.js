@@ -6,37 +6,33 @@ dotenv.config();
 
 exports.sendApplicationenquiry = async ({ name, email, mobile, Pincode, Address }) => {
   try {
-    // Create a nodemailer transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: process.env.SMTP_PORT,
-      secure: process.env.SMTP_PORT == 465, // True for 465, false for other ports
+      secure: process.env.SMTP_PORT == 465,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
       tls: {
-        rejectUnauthorized: false, // Optional but can be set to avoid TLS errors
+        rejectUnauthorized: false, 
       },
     });
 
-    // Admin email options (Notification email to admin)
     const adminMailOptions = {
-      from: `"Snehshilp" <${process.env.SMTP_USER}>`, // Sender address
-      to: process.env.MAIL_TO, // Admin email (configured in .env)
+      from: `"Snehshilp" <${process.env.SMTP_USER}>`, 
+      to: process.env.MAIL_TO,
       subject: "New Inquiry Received",
-      html: adminTemplate({ name, email, mobile, Pincode, Address }), // HTML email body for admin
+      html: adminTemplate({ name, email, mobile, Pincode, Address }), 
     };
 
-    // User email options (Thank You email to user)
     const userMailOptions = {
-      from: `"Snehshilp" <${process.env.SMTP_USER}>`, // Sender address
-      to: email, // User's email
+      from: `"Snehshilp" <${process.env.SMTP_USER}>`,
+      to: email,
       subject: "Thank You For Contacting Snehshilp",
-      html: userTemplate({ name }), // HTML email body for the user
+      html: userTemplate({ name }), 
     };
 
-    // Sending the emails
     await transporter.sendMail(adminMailOptions);
     await transporter.sendMail(userMailOptions);
 
